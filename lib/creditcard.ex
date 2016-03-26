@@ -6,7 +6,7 @@ defmodule Creditcard do
   @doc ~S"""
     Validates a credit card number using the Luhn algorithm cc
   """
-  def card_number_is_valid?(card_number) do
+  def is_card_number_valid?(card_number) do
       0 == cleanse(card_number)
         |> Integer.digits
         |> Enum.reverse
