@@ -4,7 +4,26 @@ defmodule Creditcard do
   """
 
   @doc ~S"""
-    Validates a credit card number using the Luhn algorithm cc
+    Validates and identifies a credit card
+
+    ## Parameters
+      - card_number: A credit card number (either string or integer)
+
+    ## Examples
+      iex> Creditcard.validate_and_identify("378282246310005")
+      { "AMEX", 378282246310005, "valid" }
+  """
+  def validate_and_identify(card_number) do
+    validation_result = case is_card_number_valid?(card_number) do
+      :true -> "valid"
+      :false -> "invalid"
+    end
+
+    { determine_card_type(card_number), cleanse(card_number), validation_result}
+  end
+
+  @doc ~S"""
+    Verifies that a credit card number is valid using the Luhn algorithm cc
 
     ## Parameters
       - card_number: A credit card number (either string or integer)
