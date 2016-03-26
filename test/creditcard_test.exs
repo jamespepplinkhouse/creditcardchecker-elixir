@@ -39,5 +39,7 @@ defmodule CreditcardTest do
     assert Creditcard.validate_and_identify(5105105105105100) == { "MasterCard", 5105105105105100, "valid" }
     assert Creditcard.validate_and_identify(5105105105105106) == { "MasterCard", 5105105105105106, "invalid" }
     assert Creditcard.validate_and_identify(9111111111111111) == { "Unknown", 9111111111111111, "invalid" }
+    assert Creditcard.validate_and_identify(1) == { "Unknown", 1, "invalid" }
+    assert Creditcard.validate_and_identify("1") == { "Unknown", 1, "invalid" }
   end
 end

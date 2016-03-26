@@ -19,7 +19,7 @@ defmodule Creditcard do
       :false -> "invalid"
     end
 
-    { determine_card_type(card_number), cleanse(card_number), validation_result}
+    {determine_card_type(card_number), cleanse(card_number), validation_result}
   end
 
   @doc ~S"""
