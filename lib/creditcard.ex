@@ -5,6 +5,13 @@ defmodule Creditcard do
 
   @doc ~S"""
     Validates a credit card number using the Luhn algorithm cc
+
+    ## Parameters
+      - card_number: A credit card number (either string or integer)
+
+    ## Examples
+      iex> Creditcard.is_card_number_valid?("378282246310005")
+      :true
   """
   def is_card_number_valid?(card_number) do
       0 == cleanse(card_number)
@@ -17,6 +24,13 @@ defmodule Creditcard do
 
   @doc ~S"""
     Returns a string representing the card type
+
+    ## Parameters
+      - card_number: A credit card number (either string or integer)
+
+    ## Examples
+      iex> Creditcard.determine_card_type("378282246310005")
+      "AMEX"
   """
   def determine_card_type(card_number) do
       card_number_list = cleanse(card_number) |>
