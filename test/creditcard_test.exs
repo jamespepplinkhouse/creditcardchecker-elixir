@@ -18,4 +18,15 @@ defmodule CreditcardTest do
     assert Creditcard.card_number_is_valid?("5105 1051 0510 5106") == :false
     assert Creditcard.card_number_is_valid?("411!111$1111#111##111") == :true
   end
+
+  test "can identify AMEX" do
+    assert Creditcard.determine_card_type(4111111111111111) == "VISA"
+    assert Creditcard.determine_card_type(4111111111111) == "VISA"
+    assert Creditcard.determine_card_type(4012888888881881) == "VISA"
+    assert Creditcard.determine_card_type(378282246310005) == "AMEX"
+    assert Creditcard.determine_card_type(6011111111111117) == "Discover"
+    assert Creditcard.determine_card_type(5105105105105100) == "MasterCard"
+    assert Creditcard.determine_card_type(5105105105105106) == "MasterCard"
+    assert Creditcard.determine_card_type(9111111111111111) == "Unknown"
+  end
 end

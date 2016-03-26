@@ -18,8 +18,27 @@ defmodule Creditcard do
   @doc ~S"""
     Returns a string representing the card type
   """
-  def determine_card_type(card_number) when is_integer(card_number) do
+  def determine_card_type(card_number) do
+      card_number_list = cleanse(card_number) |>
+        Integer.to_char_list
 
+      starting_digits = card_number_list
+        |> Enum.take(4)
+        |> to_string
+
+      card_length = card_number_list
+        |> Enum.count
+
+    case {starting_digits, card_length} do
+      {"34" <> _, 15} -> "AMEX"
+      {"37" <> _, 15} -> "AMEX"
+      {"6011", 16} -> "Discover"
+      {"51" <> _, 16} -> "MasterCard"
+      {"55" <> _, 16} -> "MasterCard"
+      {"4" <> _, 13} -> "VISA"
+      {"4" <> _, 16} -> "VISA"
+      {_, _} -> "Unknown"
+    end
   end
 
   defp cleanse(card_number) do
