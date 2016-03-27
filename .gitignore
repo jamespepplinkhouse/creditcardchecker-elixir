@@ -4,3 +4,4 @@
 erl_crash.dump
 *.ez
 data/output_credit_card_results.txt
+creditcardchecker
