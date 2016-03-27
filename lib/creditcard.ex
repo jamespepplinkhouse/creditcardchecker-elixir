@@ -19,7 +19,7 @@ defmodule Creditcard do
       :false -> "invalid"
     end
 
-    {determine_card_type(card_number), cleanse(card_number), validation_result}
+    { card_number |> determine_card_type, card_number |> cleanse, validation_result}
   end
 
   @doc ~S"""
@@ -52,15 +52,9 @@ defmodule Creditcard do
       "AMEX"
   """
   def determine_card_type(card_number) do
-      card_number_list = cleanse(card_number) |>
-        Integer.to_char_list
-
-      starting_digits = card_number_list
-        |> Enum.take(4)
-        |> to_string
-
-      card_length = card_number_list
-        |> Enum.count
+      card_number_list = cleanse(card_number) |> Integer.to_char_list
+      starting_digits = card_number_list |> Enum.take(4) |> to_string
+      card_length = card_number_list |> Enum.count
 
     case {starting_digits, card_length} do
       {"34" <> _, 15} -> "AMEX"
