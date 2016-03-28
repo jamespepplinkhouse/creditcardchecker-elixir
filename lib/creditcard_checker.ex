@@ -12,7 +12,7 @@ defmodule CreditcardChecker do
     outputFile = File.open!(options[:outputfile], [:write])
 
     File.stream!(options[:inputfile], [:read])
-      |> Stream.chunk(1000, 1000, [])
+      |> Stream.chunk(50000, 50000, [])
       |> Enum.map(&Task.async(fn -> process_batch_of_cards(&1, outputFile) end))
       |> Enum.map(&Task.await/1)
 

@@ -1,10 +1,14 @@
 # Credit Card Checker
 
-This program validates and identifies credit card numbers by consuming an input file with a credit card number on each line and writing the results into an output file.
-Try this for a quick way to build and test the program:
+This program validates and identifies credit card numbers by consuming an input file with a credit card number on each line and writing the results into an output file. This program has been optimised for parsing large files as quickly as possible. Try this for a quick way to build and test the program:
 ```
 ./start.sh
 ```
+
+*Performance Features:*
+- Streams the input file so that it can process very large files with consistent memory behaviour
+- Input stream allows the program to start processing and writing the output file before the input file is fully loaded
+- Processes cards in batches of 50,000 asynchronously to use all CPU cores
 
 ## Running tests:
 ```
