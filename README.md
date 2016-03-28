@@ -1,6 +1,10 @@
 # Credit Card Checker
 
 This program validates and identifies credit card numbers by consuming an input file with a credit card number on each line and writing the results into an output file.
+Try this for a quick way to build and test the program:
+```
+./start.sh
+```
 
 ## Running tests:
 ```
