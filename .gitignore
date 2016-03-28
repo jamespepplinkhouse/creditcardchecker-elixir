@@ -3,5 +3,5 @@
 /deps
 erl_crash.dump
 *.ez
-data/output_credit_card_results.txt
+data/output_credit_cards.txt
 creditcardchecker

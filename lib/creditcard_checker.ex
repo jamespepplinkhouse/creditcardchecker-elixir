@@ -25,7 +25,7 @@ defmodule CreditcardChecker do
 
   defp card_result_to_string(card_result) do
     {type, number, validity} = card_result
-    "#{type}: #{number} \t(#{validity})"
+    "#{type}: #{number} (#{validity})"
   end
 
   defp parse_args(args) do
