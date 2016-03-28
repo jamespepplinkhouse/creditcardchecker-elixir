@@ -11,15 +11,15 @@ defmodule CreditcardChecker do
 
     {:ok, outputFile } = File.open(options[:outputfile], [:write])
 
-    process_card = fn card ->
-      validation_result = Creditcard.validate_and_identify(card) |> card_result_to_string
-      IO.puts(validation_result)
-      IO.binwrite(outputFile, "#{validation_result}\n")
-    end
+    File.stream!(options[:inputfile])
+      |> Enum.each(fn card -> process_card(card, outputFile) end)
 
-    File.stream!(options[:inputfile]) |> Enum.each(process_card)
+    IO.puts("Finished!\n")
+  end
 
-    IO.puts("\nFinished!\n")
+  defp process_card(card, outputFile) do
+    validation_result = Creditcard.validate_and_identify(card) |> card_result_to_string
+    IO.binwrite(outputFile, "#{validation_result}\n")
   end
 
   defp parse_args(args) do
@@ -38,7 +38,7 @@ defmodule CreditcardChecker do
       errors = ["Missing parameter 'outputfile', example: '--outputfile=/tmp/output.txt'" | errors]
     end
 
-    if (Enum.count(errors) > 0) do
+    if (Enum.any?(errors)) do
       errors
         |> Enum.reverse
         |> Enum.each(fn error -> IO.puts(:stderr, error) end)
