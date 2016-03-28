@@ -11,35 +11,22 @@ defmodule CreditcardChecker do
 
     outputFile = File.open!(options[:outputfile], [:write])
 
-    # File.read!(options[:inputfile])
-    #   |> String.split("\n")
     File.stream!(options[:inputfile], [:read])
-      |> Stream.chunk(10000, 10000, [])
-      |> Enum.map(&handle_cards_async(&1, outputFile))
-
-
-      # |> Enum.map(&Task.async(fn -> process_batch_of_cards(&1) end))
-      # |> Enum.map(fn pid -> IO.binwrite(outputFile, Task.await(pid)) end)
-      # |> Enum.map(&Task.await/1)
-      # |> Enum.map(&IO.binwrite(outputFile, &1))
+      |> Stream.chunk(1000, 1000, [])
+      |> Enum.map(&Task.async(fn -> process_batch_of_cards(&1, outputFile) end))
+      |> Enum.map(&Task.await/1)
 
     IO.puts("Finished!\n")
   end
 
-  defp handle_cards_async(cards, outputFile) do
-    task = Task.async(fn -> process_batch_of_cards(cards) end)
-    result = Task.await(task)
-    IO.binwrite(outputFile, result)
-  end
-
-  defp process_batch_of_cards(cards) do
-    cards
+  defp process_batch_of_cards(cards, outputFile) do
+    result = cards
       |> Enum.filter(fn x -> x != "" end)
       |> Enum.map(&Creditcard.validate_and_identify(&1))
       |> Enum.map(&card_result_to_string(&1))
       |> Enum.join("\n")
-      # |> IO.puts
-      # |> &IO.binwrite(outputFile, &1)
+
+    IO.binwrite(outputFile, result)
   end
 
   defp parse_args(args) do
