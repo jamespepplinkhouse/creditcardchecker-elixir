@@ -23,11 +23,6 @@ defmodule CreditcardChecker do
      IO.puts("\nFinished!\n")
   end
 
-  defp card_result_to_string(card_result) do
-    {type, number, validity} = card_result
-    "#{type}: #{number} (#{validity})"
-  end
-
   defp parse_args(args) do
     {options, _, _} = OptionParser.parse(args, switches: [inputfile: :string, outputfile: :string] )
     options
@@ -46,7 +41,7 @@ defmodule CreditcardChecker do
     if (Enum.count(errors) > 0) do
       errors
         |> Enum.reverse
-        |> Enum.each(fn(error) -> IO.puts(:stderr, error) end)
+        |> Enum.each(fn error -> IO.puts(:stderr, error) end)
 
       IO.puts "Aborting!"
       exit(:shutdown)
@@ -58,6 +53,11 @@ defmodule CreditcardChecker do
     end
 
     options
+  end
+
+  defp card_result_to_string(card_result) do
+    {type, number, validity} = card_result
+    "#{type}: #{number} (#{validity})"
   end
 
 end

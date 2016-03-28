@@ -1,20 +1,32 @@
-# Creditcard
+# Credit Card Checker
 
-**TODO: Add description**
+This program validates and identifies credit card numbers by consuming an input file with a credit card number on each line and writing the results into an output file.
 
-## Installation
+## Running tests:
+```
+mix test
+```
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed as:
+## Building CLI tool:
+```
+mix escript.build
+```
 
-  1. Add creditcard to your list of dependencies in `mix.exs`:
+## Example CLI usage:
+```
+./creditcardchecker --inputfile=./data/input_credit_cards.txt --outputfile=./data/output_credit_cards.txt
+```
 
-        def deps do
-          [{:creditcard, "~> 0.0.1"}]
-        end
+## IEX examples:
+```
+$ iex -S mix
+Erlang/OTP 18 [erts-7.3] [source-d2a6d81] [64-bit] [smp:4:4] [async-threads:10] [hipe] [kernel-poll:false]
 
-  2. Ensure creditcard is started before your application:
-
-        def application do
-          [applications: [:creditcard]]
-        end
-
+Interactive Elixir (1.2.3) - press Ctrl+C to exit (type h() ENTER for help)
+iex(1)> Creditcard.validate_and_identify("5105 1051 0510 5106")
+{"MasterCard", 5105105105105106, "invalid"}
+iex(2)> Creditcard.is_card_number_valid?("5105 1051 0510 5106")
+false
+iex(3)> Creditcard.determine_card_type(4111111111111111)
+"VISA"
+```
