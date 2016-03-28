@@ -33,12 +33,12 @@ defmodule Creditcard do
       :true
   """
   def is_card_number_valid?(card_number) do
-      0 == cleanse(card_number)
-        |> Integer.digits
-        |> Enum.reverse
-        |> Enum.chunk(2, 2, [0])
-        |> Enum.reduce(0, fn([odd, even], sum) -> Enum.sum([sum, odd | Integer.digits(even*2)]) end)
-        |> rem(10)
+    0 == cleanse(card_number)
+      |> Integer.digits
+      |> Enum.reverse
+      |> Enum.chunk(2, 2, [0])
+      |> Enum.reduce(0, fn([odd, even], sum) -> Enum.sum([sum, odd | Integer.digits(even*2)]) end)
+      |> rem(10)
   end
 
   @doc ~S"""
@@ -52,9 +52,9 @@ defmodule Creditcard do
       "AMEX"
   """
   def determine_card_type(card_number) do
-      card_number_list = cleanse(card_number) |> Integer.to_char_list
-      starting_digits = card_number_list |> Enum.take(4) |> to_string
-      card_length = card_number_list |> Enum.count
+    card_number_list = cleanse(card_number) |> Integer.to_char_list
+    starting_digits = card_number_list |> Enum.take(4) |> to_string
+    card_length = card_number_list |> Enum.count
 
     case {starting_digits, card_length} do
       {"34" <> _, 15} -> "AMEX"
@@ -70,9 +70,9 @@ defmodule Creditcard do
 
   defp cleanse(card_number) do
     if (is_binary(card_number)) do
-      {card_number, _} = String.replace(card_number, ~r/[^0-9]/, "")
-        |> Integer.parse
+      {card_number, _} = String.replace(card_number, ~r/[^0-9]/, "") |> Integer.parse
     end
+
     card_number
   end
 

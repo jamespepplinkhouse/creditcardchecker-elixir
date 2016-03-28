@@ -17,10 +17,9 @@ defmodule CreditcardChecker do
       IO.binwrite(outputFile, "#{validation_result}\n")
     end
 
-    File.stream!(options[:inputfile])
-     |> Enum.each(process_card)
+    File.stream!(options[:inputfile]) |> Enum.each(process_card)
 
-     IO.puts("\nFinished!\n")
+    IO.puts("\nFinished!\n")
   end
 
   defp parse_args(args) do
@@ -30,6 +29,7 @@ defmodule CreditcardChecker do
 
   defp validate_paramaters(options) do
     errors = []
+
     if (!options[:inputfile]) do
       errors = ["Missing parameter 'inputfile', example: '--inputfile=/tmp/input.txt'" | errors]
     end
