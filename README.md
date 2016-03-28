@@ -5,6 +5,9 @@ This program validates and identifies credit card numbers by consuming an input 
 ./start.sh
 ```
 
+To try a larger input data set (3,310,000 cards) unzip the file at: ./data/input_credit_cards_large.txt.tar.gz
+
+
 *Performance Features:*
 - Streams the input file so that it can process very large files with consistent memory behaviour
 - Input stream allows the program to start processing and writing the output file before the input file is fully loaded
