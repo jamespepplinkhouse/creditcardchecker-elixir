@@ -1,0 +1,35 @@
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+*** Single Threaded Test ***
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+- Number of cards processed: 3,310,000
+- Number of seconds: 413
+- Cards processed per second: 8014
+
+| james@zenith:/srv/git/creditcardchecker$ time ./creditcardchecker --inputfile=./data/input_credit_cards_large.txt --outputfile=./data/output_credit_cards.txt
+|
+| Reading from:	./data/input_credit_cards_large.txt
+| Writing to:	./data/output_credit_cards.txt
+|
+| Finished!
+|
+|
+| real	6m25.091s
+| user	6m53.756s
+| sys	1m3.096s
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+*** Multi-Threaded Test ***
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+- Number of cards processed: 3,310,000
+- Number of seconds: 141.434
+- Cards processed per second: 23,403
+
+| james@zenith:/srv/git/creditcardchecker$ time ./creditcardchecker --inputfile=./data/input_credit_cards_large.txt --outputfile=./data/output_credit_cards.txt
+|
+| Reading from:	./data/input_credit_cards_large.txt
+| Writing to:	./data/output_credit_cards.txt
+|
+| Finished!
+| real	2m21.434s
+| user	7m57.061s
+| sys	0m7.679s
