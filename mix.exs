@@ -1,4 +1,4 @@
-defmodule Creditcard.Mixfile do
+defmodule CreditcardChecker.Mixfile do
   use Mix.Project
 
   def project do
