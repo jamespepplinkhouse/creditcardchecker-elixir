@@ -68,11 +68,12 @@ defmodule Creditcard do
     end
   end
 
-  defp cleanse(card_number) do
-    if (is_binary(card_number)) do
-      {card_number, _} = String.replace(card_number, ~r/[^0-9]/, "") |> Integer.parse
-    end
+  defp cleanse(card_number) when is_integer(card_number) do
+    card_number
+  end
 
+  defp cleanse(card_number) when is_binary(card_number) do
+    {card_number, _} = String.replace(card_number, ~r/[^0-9]/, "") |> Integer.parse
     card_number
   end
 
