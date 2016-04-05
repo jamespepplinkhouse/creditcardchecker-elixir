@@ -1,0 +1,236 @@
+
+Reading from:	./data/input_credit_cards.txt
+Reading trace data...
+Writing to:	./data/output_credit_cards.txt
+
+................Finished!
+
+..................................
+.................................................,
+..................................................
+..
+End of trace!
+Processing data...
+Creating output...
+Done!
+
+                                                                   CNT    ACC (ms)    OWN (ms)     
+Total                                                            95945     553.919     502.377     
+Enum.map/2                                                           4    1055.445       0.023     
+Enum."-map/2-lists^map/1-0-"/2                                     404    1028.363       4.899     
+:suspend                                                            85     569.487       0.000     
+:fprof.apply_start_stop/4                                            0     553.919       0.030     
+anonymous fn/0 in :elixir_compiler_1.__FILE__/1                      1     553.759       0.005     
+CreditcardChecker.main/0                                             1     553.754       0.049     
+:proc_lib.init_p/5                                                   1     517.945       0.028     
+Task.await/1                                                         1     517.885       0.005     
+Task.await/2                                                         1     517.880       0.021     
+:proc_lib.init_p_do_apply/3                                          1     517.785       0.004     
+Task.Supervised.reply/4                                              1     517.781       0.009     
+Task.Supervised.reply/5                                              1     517.734       0.011     
+Task.Supervised.do_apply/2                                           1     517.721       0.007     
+:erlang.apply/2                                                      1     517.714       0.005     
+anonymous fn/2 in CreditcardChecker.main/0                           1     517.709       0.005     
+CreditcardChecker.process_batch_of_cards/2                           1     517.704       0.047     
+Creditcard.validate_and_identify/1                                 200     497.284       3.911     
+Creditcard.cleanse/1                                               200     283.610       1.483     
+Integer.parse/1                                                    200     270.926       0.771     
+Integer.parse/2                                                    200     270.155       0.806     
+Integer.parse_in_base/2                                            200     269.349       0.880     
+Integer.do_parse/2                                                 200     268.469       2.669     
+Integer.do_parse/3                                                3096     244.642      38.234     
+Enum.reduce/3                                                     1978     180.591       6.931     
+Creditcard.is_card_number_valid?/1                                 200     174.651       4.933     
+Enum."-reduce/3-lists^foldl/2-0-"/3                              12121     151.878      62.402     
+Enum.member?/2                                                    6406     151.393      38.042     
+Integer.valid_digit_in_base?/2                                    3296     117.891      27.533     
+Enumerable.member?/2                                              6392     113.276      49.184     
+Integer.parse_digit/2                                             3096     109.547      30.248     
+anonymous fn/2 in Creditcard.is_card_number_valid?/1              1574      83.834      13.548     
+:error_handler.undefined_function/3                                 11      63.233       0.218     
+Enum.chunk/4                                                       200      56.956       4.390     
+Enumerable.impl_for!/1                                            6394      47.162      34.393     
+Enum.sum/1                                                        1574      43.829      11.996     
+:error_handler.ensure_loaded/1                                      11      43.476       0.083     
+:code.ensure_loaded/1                                               11      43.361       0.044     
+:code.call/1                                                        11      43.317       0.035     
+:code_server.call/2                                                 11      43.282       0.197     
+Integer.digits/1                                                  1774      39.247       6.551     
+Creditcard.determine_card_type/1                                   200      35.086       5.936     
+Integer.digits/2                                                  1774      32.649       9.302     
+anonymous fn/5 in Enum.chunk/4                                    3096      25.999      19.436     
+Enumerable.reduce/3                                                  2      25.796       0.009     
+Enumerable.Stream.reduce/3                                           1      25.786       0.001     
+Enumerable.Stream.do_reduce/3                                        1      25.785       0.011     
+Enumerable.Stream.do_each/4                                          1      25.762       0.007     
+String.Chars.to_string/1                                           400      24.872       3.344     
+Integer.do_digits/3                                               6544      23.326      23.179     
+anonymous fn/3 in Enumerable.Stream.do_reduce/3                      1      19.612       0.003     
+Enumerable.File.Stream.reduce/3                                      1      17.783       0.013     
+anonymous fn/5 in Stream.resource/3                                  1      17.709       0.005     
+Stream.do_resource/5                                               202      16.948       1.752     
+Range.new/2                                                       6392      14.892      14.272     
+anonymous fn/2 in Enumerable.File.Stream.reduce/3                  201      14.712       0.538     
+IO.each_binstream/2                                                201      14.174       0.729     
+Enumerable.Range.member?/2                                        6392      14.068      14.068     
+IO.binread/2                                                       201      13.445       0.832     
+:file.read_line/1                                                  201      12.613       0.526     
+Enumerable.impl_for/1                                             6394      12.398      12.259     
+:prim_file.read_line/1                                             201      12.087       0.820     
+:prim_file.drv_command/2                                           204      11.979       0.483     
+:prim_file.drv_command/3                                           204      11.496       0.485     
+:prim_file.drv_command/4                                           204      11.009       1.834     
+Enum.take/2                                                       1775       8.965       3.832     
+:lists.reverse/1                                                  1930       7.626       6.375     
+:prim_file.drv_get_response/2                                      204       6.854       0.516     
+:prim_file.drv_get_response/1                                      204       6.338       1.446     
+Enumerable.Stream.do_done/2                                          1       6.143       0.014     
+anonymous fn/4 in Stream.chunk/4                                     1       6.126       0.004     
+Stream.do_chunk/4                                                    1       6.122       0.019     
+anonymous fn/3 in Enumerable.Stream.reduce/3                         1       6.088       0.009     
+anonymous fn/3 in Enum.reduce/3                                      1       6.079       0.010     
+anonymous fn/3 in Enum.map/2                                         1       6.069       0.008     
+anonymous fn/2 in CreditcardChecker.main/0                           1       6.061       0.007     
+anonymous fn/1 in CreditcardChecker.process_batch_of_cards/2       200       5.969       0.647     
+String.Chars.List.to_string/1                                      200       5.569       0.939     
+CreditcardChecker.card_result_to_string/1                          200       5.322       1.226     
+Enum.do_take/2                                                    1104       5.133       5.133     
+:io.request/2                                                        4       4.874       0.026     
+:io.execute_request/2                                                4       4.810       0.499     
+List.to_string/1                                                   200       4.630       1.269     
+IO.puts/1                                                            3       4.601       0.020     
+IO.puts/2                                                            3       4.578       0.012     
+:io.put_chars/2                                                      3       4.566       0.008     
+:io.o_request/3                                                      3       4.558       0.014     
+Enum.filter/2                                                        1       4.267       0.014     
+:erlang.make_fun/3                                                1577       3.464       3.464     
+:unicode.characters_to_binary/1                                    200       3.349       1.769     
+:prim_file.translate_response/2                                    204       3.005       0.853     
+String.Chars.impl_for!/1                                           400       2.865       2.077     
+Enum.join/2                                                          1       2.557       0.023     
+Task.async/1                                                         1       2.459       0.003     
+Task.async/3                                                         1       2.456       0.028     
+:garbage_collect                                                    74       2.358       2.358     
+:file.open/2                                                         2       2.312       0.020     
+:prim_file.get_uint64/1                                            202       2.152       1.499     
+File.stream!/2                                                       1       2.130       0.003     
+File.stream!/3                                                       1       2.127       0.009     
+anonymous fn/3 in Enum.filter/2                                    200       2.025       1.559     
+:erlang.port_command/2                                             204       1.730       1.035     
+:unicode.characters_to_binary/2                                    203       1.597       1.597     
+File.open!/2                                                         1       1.581       0.006     
+File.open/2                                                          1       1.575       0.007     
+:file.call/2                                                         1       1.539       0.011     
+:gen_server.call/3                                                   1       1.527       0.010     
+:gen.call/4                                                          1       1.517       0.004     
+:gen.do_for_proc/2                                                   1       1.513       0.004     
+anonymous fn/4 in :gen.call/4                                        1       1.506       0.002     
+:gen.do_call/4                                                       1       1.504       0.021     
+String.Chars.Integer.to_string/1                                   200       1.486       1.044     
+:lists.reverse/2                                                   457       1.266       1.266     
+String.Chars.impl_for/1                                            400       0.788       0.788     
+anonymous fn/2 in Enumerable.File.Stream.reduce/3                    1       0.756       0.005     
+:prim_file.open/2                                                    1       0.731       0.003     
+:erlang.integer_to_list/1                                          200       0.707       0.707     
+:prim_file.open_int/4                                                2       0.697       0.009     
+:erts_internal.port_command/3                                      204       0.695       0.695     
+:prim_file.get_uint32/1                                            404       0.632       0.632     
+:erlang.max/2                                                      201       0.489       0.489     
+Enum.count/1                                                       200       0.471       0.471     
+anonymous fn/1 in CreditcardChecker.process_batch_of_cards/2       200       0.466       0.466     
+:erlang.integer_to_binary/1                                        200       0.442       0.442     
+anonymous fn/3 in Enum.join/2                                      200       0.384       0.384     
+CreditcardChecker.parse_args/1                                       1       0.374       0.002     
+OptionParser.parse/2                                                 1       0.372       0.008     
+anonymous fn/6 in Stream.chunk/4                                   200       0.371       0.371     
+IO.binwrite/2                                                        1       0.353       0.006     
+:file.write/2                                                        1       0.347       0.015     
+OptionParser.do_parse/6                                              3       0.331       0.023     
+:prim_file."-drv_command/4-after$^0/0-0-"/1                        204       0.313       0.313     
+:erlang.bump_reductions/1                                          204       0.305       0.305     
+OptionParser.next/4                                                  2       0.259       0.024     
+:fprof."-apply_start_stop/4-after$^0/0-0-"/3                         1       0.130       0.130     
+:file.close/1                                                        1       0.113       0.004     
+:prim_file.close/1                                                   1       0.109       0.015     
+Task.Supervised.spawn_link/3                                         1       0.098       0.005     
+Task.Supervised.spawn_link/4                                         1       0.093       0.004     
+:proc_lib.spawn_link/3                                               1       0.089       0.022     
+OptionParser.split_option/1                                          2       0.087       0.016     
+Access.get/2                                                        10       0.078       0.013     
+OptionParser.tag_option/3                                            2       0.072       0.005     
+:binary.split/2                                                      2       0.071       0.002     
+:binary.split/3                                                      2       0.069       0.018     
+OptionParser.get_negated/2                                           2       0.067       0.006     
+Access.get/3                                                        10       0.065       0.024     
+:erlang.iolist_to_binary/1                                           1       0.061       0.061     
+OptionParser.get_option/1                                            2       0.061       0.013     
+OptionParser.validate_option/2                                       2       0.049       0.013     
+:erlang.spawn_link/3                                                 1       0.045       0.045     
+OptionParser.to_underscore/1                                         2       0.044       0.005     
+:prim_file.drv_close/1                                               1       0.042       0.013     
+Access.fetch/2                                                      10       0.041       0.027     
+:binary.do_split/5                                                   4       0.040       0.028     
+OptionParser.to_underscore/2                                        21       0.039       0.039     
+:io.io_request/2                                                     4       0.038       0.021     
+Task.Supervised.initial_call/1                                       1       0.038       0.009     
+:erlang.whereis/1                                                   12       0.035       0.035     
+:erlang.function_exported/3                                         11       0.034       0.034     
+OptionParser.compile_config/1                                        1       0.033       0.006     
+anonymous fn/2 in Enumerable.File.Stream.reduce/3                    4       0.032       0.014     
+:prim_file.open_mode/1                                               1       0.031       0.005     
+:prim_file.open_int_setopts/3                                        2       0.031       0.003     
+OptionParser.do_store_option/4                                       2       0.031       0.010     
+:prim_file.open_mode/4                                               6       0.026       0.018     
+:erlang.port_close/1                                                 1       0.026       0.007     
+OptionParser.normalize_option/3                                      2       0.025       0.006     
+:erlang.monitor/2                                                    6       0.024       0.024     
+:erlang.demonitor/2                                                  6       0.024       0.021     
+:lists.member/2                                                     17       0.023       0.023     
+:proc_lib.get_my_name/0                                              1       0.020       0.009     
+:lists.keyfind/3                                                    14       0.019       0.019     
+:erts_internal.port_close/1                                          1       0.019       0.019     
+:prim_file.drv_open/2                                                1       0.018       0.004     
+Task.Supervised.get_initial_call/1                                   1       0.017       0.013     
+:file.check_args/1                                                  10       0.016       0.016     
+:erlang.open_port/2                                                  1       0.014       0.014     
+Task.get_info/1                                                      1       0.014       0.005     
+Keyword.delete/2                                                     2       0.014       0.005     
+:binary.part/2                                                       4       0.012       0.012     
+Process.put/2                                                        1       0.012       0.010     
+File.Stream.__build__/3                                              1       0.012       0.009     
+:proc_lib.proc_info/2                                                1       0.011       0.007     
+:lists.foldl/3                                                       2       0.011       0.006     
+Keyword.get/2                                                        2       0.011       0.005     
+File.open_defaults/2                                                 4       0.010       0.010     
+:binary.match/3                                                      2       0.009       0.009     
+Stream.chunk/4                                                       1       0.009       0.008     
+Process.info/2                                                       1       0.009       0.007     
+Keyword."-delete/2-lists^filter/1-0-"/2                              3       0.009       0.008     
+:prim_file.reverse/1                                                 2       0.008       0.004     
+:erlang.put/2                                                        3       0.008       0.008     
+:prim_file.pathname/1                                                1       0.007       0.006     
+:erlang.process_info/2                                               2       0.006       0.006     
+Keyword.get/3                                                        2       0.006       0.004     
+:erlang.send/2                                                       2       0.005       0.005     
+List.wrap/1                                                          4       0.005       0.005     
+anonymous fn/2 in Enumerable.Stream.do_reduce/3                      1       0.005       0.004     
+:erlang.fun_info/2                                                   2       0.004       0.004     
+:erlang.binary_to_atom/2                                             2       0.004       0.004     
+:prim_file."-drv_close/1-after$^0/0-0-"/1                            1       0.003       0.003     
+:file.file_name/1                                                    2       0.003       0.003     
+:erts_internal.flush_monitor_messages/3                              1       0.003       0.003     
+:erlang.send/3                                                       1       0.003       0.003     
+:erlang.group_leader/0                                               3       0.003       0.003     
+Stream.resource/3                                                    1       0.003       0.003     
+IO.chardata_to_string/1                                              2       0.003       0.003     
+:proc_lib.trans_init/3                                               1       0.002       0.002     
+:proc_lib.get_ancestors/0                                            1       0.002       0.002     
+:file.make_binary/1                                                  1       0.002       0.002     
+:erlang.iolist_size/1                                                1       0.002       0.002     
+:binary.get_opts_split/2                                             2       0.002       0.002     
+OptionParser.normalize_value/4                                       2       0.002       0.002     
+:prim_file.internal_name2native/1                                    1       0.001       0.001     
+:erlang.list_to_tuple/1                                              1       0.001       0.001     
+anonymous fn/4 in Stream.chunk/4                                     1       0.001       0.001     
+anonymous fn/2 in Keyword.delete/2                                   1       0.001       0.001     
+:undefined                                                           0       0.000       0.000     

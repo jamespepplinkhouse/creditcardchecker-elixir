@@ -14,12 +14,13 @@ defmodule Creditcard do
       { "AMEX", 378282246310005, "valid" }
   """
   def validate_and_identify(card_number) do
+    card_number = cleanse(card_number)
     validation_result = case is_card_number_valid?(card_number) do
       :true -> "valid"
       :false -> "invalid"
     end
 
-    { card_number |> determine_card_type, card_number |> cleanse, validation_result}
+    { card_number |> determine_card_type, card_number, validation_result}
   end
 
   @doc ~S"""
@@ -29,11 +30,11 @@ defmodule Creditcard do
       - card_number: A credit card number (either string or integer)
 
     ## Examples
-      iex> Creditcard.is_card_number_valid?("378282246310005")
+      iex> Creditcard.is_card_number_valid?(378282246310005)
       :true
   """
   def is_card_number_valid?(card_number) do
-    0 == cleanse(card_number)
+    0 == card_number
       |> Integer.digits
       |> Enum.reverse
       |> Enum.chunk(2, 2, [0])
@@ -48,11 +49,11 @@ defmodule Creditcard do
       - card_number: A credit card number (either string or integer)
 
     ## Examples
-      iex> Creditcard.determine_card_type("378282246310005")
+      iex> Creditcard.determine_card_type(378282246310005)
       "AMEX"
   """
   def determine_card_type(card_number) do
-    card_number_list = cleanse(card_number) |> Integer.to_char_list
+    card_number_list = card_number |> Integer.to_char_list
     starting_digits = card_number_list |> Enum.take(4) |> to_string
     card_length = card_number_list |> Enum.count
 
@@ -68,12 +69,12 @@ defmodule Creditcard do
     end
   end
 
-  defp cleanse(card_number) when is_integer(card_number) do
-    card_number
-  end
+  # defp cleanse(card_number) when is_integer(card_number) do
+  #   card_number
+  # end
 
-  defp cleanse(card_number) when is_binary(card_number) do
-    {card_number, _} = String.replace(card_number, ~r/[^0-9]/, "") |> Integer.parse
+  defp cleanse(card_number) do
+    {card_number, _} = card_number |> Integer.parse
     card_number
   end
 

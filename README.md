@@ -18,6 +18,11 @@ To try a larger input data set (3,310,000 cards) unzip the file at: ./data/input
 mix test
 ```
 
+## Profiling:
+```
+mix profile.fprof -e CreditcardChecker.main > profile.log
+```
+
 ## Building CLI tool:
 ```
 mix escript.build
