@@ -4,7 +4,6 @@ defmodule CreditcardChecker do
   """
 
   def main(args) do
-    # args = ["--inputfile=./data/input_credit_cards_large.txt", "--outputfile=./data/output_credit_cards.txt"]
     options = parse_args(args)
 
     IO.puts("\nReading from:\t#{options[:inputfile]}")
@@ -34,34 +33,6 @@ defmodule CreditcardChecker do
     {options, _, _} = OptionParser.parse(args, switches: [inputfile: :string, outputfile: :string] )
     options
   end
-
-  # defp validate_paramaters(options) do
-  #   errors = []
-  #
-  #   if (!options[:inputfile]) do
-  #     errors = ["Missing parameter 'inputfile', example: '--inputfile=/tmp/input.txt'" | errors]
-  #   end
-  #
-  #   if (!options[:outputfile]) do
-  #     errors = ["Missing parameter 'outputfile', example: '--outputfile=/tmp/output.txt'" | errors]
-  #   end
-  #
-  #   if (Enum.any?(errors)) do
-  #     errors
-  #       |> Enum.reverse
-  #       |> Enum.each(fn error -> IO.puts(:stderr, error) end)
-  #
-  #     IO.puts "Aborting!"
-  #     exit(:shutdown)
-  #   end
-  #
-  #   if (!File.regular?(options[:inputfile])) do
-  #     IO.puts "Input file '#{options[:inputfile]}' does not exist. Aborting!"
-  #     exit(:shutdown)
-  #   end
-  #
-  #   options
-  # end
 
   defp card_result_to_string(card_result) do
     {type, number, validity} = card_result
