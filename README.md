@@ -13,6 +13,26 @@ To try a larger input data set (3,310,000 cards) there is a file at: ./data/inpu
 - Input stream allows the program to start processing and writing the output file before the input file is fully loaded
 - Processes cards in batches of 50,000 asynchronously to use all CPU cores
 
+*My observations with the large data set:*
+- Low consistent memory usage (~150MB on my machine)
+- Erlang VM seems to take longer to reach 100% CPU than Node.js (e.g. 2 seconds)
+- Results from three runs:
+
+```
+real    0m50.231s
+user    2m53.758s
+sys     0m3.236s
+
+real    0m46.248s
+user    2m54.993s
+sys     0m3.209s
+
+real    0m46.496s
+user    2m55.729s
+sys     0m3.165s
+
+```
+
 ## Running tests:
 ```
 mix test
