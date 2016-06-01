@@ -5,7 +5,7 @@ This program validates and identifies credit card numbers by consuming an input 
 ./start.sh
 ```
 
-To try a larger input data set (3,310,000 cards) unzip the file at: ./data/input_credit_cards_large.txt.tar.gz
+To try a larger input data set (3,310,000 cards) there is a file at: ./data/input_credit_cards_large.txt
 
 
 *Performance Features:*
@@ -39,9 +39,9 @@ $ iex -S mix
 Erlang/OTP 18 [erts-7.3] [source-d2a6d81] [64-bit] [smp:4:4] [async-threads:10] [hipe] [kernel-poll:false]
 
 Interactive Elixir (1.2.3) - press Ctrl+C to exit (type h() ENTER for help)
-iex(1)> Creditcard.validate_and_identify("5105 1051 0510 5106")
+iex(1)> Creditcard.validate_and_identify("5105105105105106")
 {"MasterCard", 5105105105105106, "invalid"}
-iex(2)> Creditcard.is_card_number_valid?("5105 1051 0510 5106")
+iex(2)> Creditcard.is_card_number_valid?("5105105105105106")
 false
 iex(3)> Creditcard.determine_card_type(4111111111111111)
 "VISA"

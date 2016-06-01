@@ -69,10 +69,6 @@ defmodule Creditcard do
     end
   end
 
-  # defp cleanse(card_number) when is_integer(card_number) do
-  #   card_number
-  # end
-
   defp cleanse(card_number) do
     {card_number, _} = card_number |> Integer.parse
     card_number
